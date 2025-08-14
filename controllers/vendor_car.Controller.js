@@ -329,7 +329,7 @@ exports.updateVendorCar = async (req, res) => {
 
     console.log("previmages1 " + previmages1);
 
-    const baseUrl = "https://start-your-tour-api.onrender.com/images/vendor_car/";
+    const baseUrl = "https://syt-i471.onrender.com/images/vendor_car/";
 
     previmages1 = previmages1.filter(Boolean).map((img) => (img.startsWith(baseUrl) ? img.replace(baseUrl, "") : img));
 
