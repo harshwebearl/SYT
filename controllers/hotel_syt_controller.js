@@ -2928,7 +2928,7 @@ module.exports = class hotel_controller extends BaseController {
 
       console.log("previmages1 " + previmages1);
 
-      const baseUrl = "https://start-your-tour-api.onrender.com/images/hotel_syt/";
+      const baseUrl = "https://syt-i471.onrender.com/images/hotel_syt/";
 
       previmages1 = previmages1
         .filter(Boolean)
