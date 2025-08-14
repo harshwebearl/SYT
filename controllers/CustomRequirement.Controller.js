@@ -755,7 +755,7 @@ module.exports = class CustomRequirements extends BaseController {
       }
 
       // Processing data for display
-      const baseURL = "https://start-your-tour-api.onrender.com/images/placephoto/";
+      const baseURL = "https://syt-i471.onrender.com/images/placephoto/";
       const defaultPhoto = "";
       const final_result = [];
 
