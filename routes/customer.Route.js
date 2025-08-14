@@ -38,26 +38,26 @@ router.post("/", userController.register.bind(userController));
 router.post("/checkmobilenumber", userController.checkmobile_number.bind(userController));
 
 // Get all users
-router.get("/", userController.getUsers.bind(userController));
+router.get("/", adminUserAuth, userController.getUsers.bind(userController));
 
 // Get all users by admin
-router.get("/alluserlist", userController.display_all_user_list_by_admin.bind(userController));
+router.get("/alluserlist", adminUserAuth, userController.display_all_user_list_by_admin.bind(userController));
 
 // Get user details by admin
-router.get("/userdetail", userController.display_all_user_detail_by_admin.bind(userController));
+router.get("/userdetail", adminUserAuth, userController.display_all_user_detail_by_admin.bind(userController));
 
 // Password management
 router.put("/chengepassword", userController.forgotPassword.bind(userController)); // Note: Typo in "chengepassword"
-router.put("/updatepassword", userController.updatePassword.bind(userController));
+router.put("/updatepassword", adminUserAuth, userController.updatePassword.bind(userController));
 
 // Delete user by ID
-router.delete("/:id", userController.deleteUser.bind(userController));
+router.delete("/:id", adminUserAuth, userController.deleteUser.bind(userController));
 
 // Get user profile (authenticated)
 router.get("/userprofile", adminUserAuth, userController.userInfo.bind(userController));
 
 // Get user history
-router.get("/history", userController.usershistory.bind(userController));
+router.get("/history", adminUserAuth, userController.usershistory.bind(userController));
 
 // OTP routes
 router.post("/send-otp", userController.send_otp.bind(userController));
