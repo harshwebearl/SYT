@@ -522,7 +522,7 @@ module.exports = class UserController extends BaseController {
   async userInfo(req, res) {
     try {
       const tokenData = req.userData;
-      if (tokenData === "") {
+      if (!tokenData || tokenData === "") {
         return res.status(401).json({
           message: "Auth fail"
         });
