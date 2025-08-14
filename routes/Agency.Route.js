@@ -52,18 +52,18 @@ const cp = upload.fields([
 // );
 router.post("/", cp, (req, res) => agencyController.RegisterAgency(req, res));
 
-router.get("/agencylist", (req, res) => agencyController.display_all_agency_list_by_admin(req, res));
+router.get("/agencylist", adminUserAuth, (req, res) => agencyController.display_all_agency_list_by_admin(req, res));
 
 // Get AgencyProfile
-router.get("/profile", (req, res) => agencyController.display_agency_profile(req, res));
+router.get("/profile", adminUserAuth, (req, res) => agencyController.display_agency_profile(req, res));
 
-router.get("/agencydetails", (req, res) => agencyController.agency_full_detail_by_admin(req, res));
+router.get("/agencydetails", adminUserAuth, (req, res) => agencyController.agency_full_detail_by_admin(req, res));
 
 // Get AgencyList
-router.get("/", (req, res) => agencyController.getAgencyData(req, res));
+router.get("/", adminUserAuth, (req, res) => agencyController.getAgencyData(req, res));
 
 // Get AgencyList with History
-router.get("/agencyhistory", (req, res) => agencyController.agency_history(req, res));
+router.get("/agencyhistory", adminUserAuth, (req, res) => agencyController.agency_history(req, res));
 
 router.get("/agencydashboard", adminUserAuth, (req, res) => agencyController.Agency_Dashboard(req, res));
 
