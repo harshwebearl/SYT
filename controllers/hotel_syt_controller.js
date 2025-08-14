@@ -2720,7 +2720,7 @@ module.exports = class hotel_controller extends BaseController {
 
       // Proceed with filtering rooms by availability, etc.
       const availableRooms = [];
-      const baseURL = "https://start-your-tour-api.onrender.com/images/room_syt/";
+      const baseURL = "https://syt-i471.onrender.com/images/room_syt/";
 
       for (const room of rooms) {
         const minStartDate = room.price_and_date.reduce(
