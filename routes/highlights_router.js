@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const highlights_controller = require("../controllers/highlights_controller");
 const multer = require("multer");
+const adminUserAuth = require("../middleware/admin-user-auth");
 
-// const auth = require("../middleware/auth");
 const highlights_controller_class = new highlights_controller();
 
 // const storage = multer.diskStorage({
@@ -49,10 +49,10 @@ const upload = multer({
   }
 });
 
-router.post("/", upload.single("icon"), (req, res) => highlights_controller_class.add_highlight(req, res));
-router.get("/", (req, res) => highlights_controller_class.get_highlight(req, res));
-router.get("/detail", (req, res) => highlights_controller_class.get_detail_highlight(req, res));
-router.put("/", upload.single("icon"), (req, res) => highlights_controller_class.update_highlight(req, res));
-router.delete("/", (req, res) => highlights_controller_class.delete_hightlight(req, res));
+router.post("/", adminUserAuth, upload.single("icon"), (req, res) => highlights_controller_class.add_highlight(req, res));
+router.get("/", adminUserAuth, (req, res) => highlights_controller_class.get_highlight(req, res));
+router.get("/detail", adminUserAuth, (req, res) => highlights_controller_class.get_detail_highlight(req, res));
+router.put("/", adminUserAuth, upload.single("icon"), (req, res) => highlights_controller_class.update_highlight(req, res));
+router.delete("/", adminUserAuth, (req, res) => highlights_controller_class.delete_highlight(req, res));
 
 module.exports = router;
