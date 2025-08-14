@@ -996,8 +996,8 @@ module.exports = class BidPackage extends BaseController {
         throw new Forbidden("you are not admin");
       }
 
-      const baseHotelPhotoURL = "https://start-your-tour-api.onrender.com/images/hotel_itienrary/";
-      const photoBaseURL = "https://start-your-tour-api.onrender.com/images/itinary/";
+      const baseHotelPhotoURL = "https://syt-i471.onrender.com/images/hotel_itienrary/";
+      const photoBaseURL = "https://syt-i471.onrender.com/images/itinary/";
 
       const bid_details = await Bidschema.aggregate([
         { $match: { _id: mongoose.Types.ObjectId(bid_id) } },
@@ -1629,7 +1629,7 @@ module.exports = class BidPackage extends BaseController {
       }
 
       const packageProfitMargin = await package_profit_margin.find();
-      const baseHotelPhotoURL = "https://start-your-tour-api.onrender.com/images/hotel_itienrary/";
+      const baseHotelPhotoURL = "https://syt-i471.onrender.com/images/hotel_itienrary/";
 
       const getbidDetails = await Bidschema.aggregate([
         {
